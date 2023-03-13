@@ -4,15 +4,11 @@ import { withRouter } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 
 class Login extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      name: '',
-      isButtonDisabled: true,
-      isLoading: false,
-    };
-  }
+  state = {
+    name: '',
+    isButtonDisabled: true,
+    isLoading: false,
+  };
 
   handleInputChange = ({ target }) => {
     const CRCT = 2;
