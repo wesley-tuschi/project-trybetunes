@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getUser } from '../services/userAPI';
 
 class Header extends Component {
   state = {
-    isLoading: false,
+    name: '',
+    isLoading: true,
+  };
+
+  componentDidMount() {
+    this.takeGetUser();
+  }
+
+  takeGetUser = async () => {
+    const getUserName = await getUser();
+    this.setState({
+      name: getUserName.name,
+      isLoading: false,
+    });
   };
 
   render() {
-    const { isLoading } = this.state;
+    const { name, isLoading } = this.state;
     const loadingMessage = 'Carregando...';
     return (
       <header data-testid="header-component">
@@ -15,7 +29,7 @@ class Header extends Component {
         { !isLoading && (
           <>
             <span data-testid="header-user-name">
-              Name
+              {`E ai ${name} !!`}
             </span>
             <Link to="/search" data-testid="link-to-search">
               Search
