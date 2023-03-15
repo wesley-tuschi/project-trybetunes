@@ -39,6 +39,7 @@ class Login extends Component {
           <form>
             <label>
               <input
+                placeholder="Digite o seu Nome"
                 data-testid="login-name-input"
                 type="text"
                 value={ name }
