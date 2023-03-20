@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
     artistName: '',
     albumName: '',
     songs: [],
+    favoriteSongs: [],
+    loadingFavorites: true,
   };
 
   async componentDidMount() {
@@ -16,16 +19,23 @@ class Album extends Component {
     const albumId = match.params.id;
     const results = await getMusics(albumId);
     const songs = results.slice(1);
+    const favoriteSongs = await getFavoriteSongs();
 
     this.setState({
       artistName: results[0].artistName,
       albumName: results[0].collectionName,
       songs,
+      favoriteSongs,
+      loadingFavorites: false,
     });
   }
 
   render() {
-    const { artistName, albumName, songs } = this.state;
+    const { artistName, albumName, songs, favoriteSongs, loadingFavorites } = this.state;
+
+    if (loadingFavorites) {
+      return <div>Carregando...</div>;
+    }
 
     return (
       <div data-testid="page-album">
@@ -39,6 +49,9 @@ class Album extends Component {
               trackName={ song.trackName }
               previewUrl={ song.previewUrl }
               trackId={ song.trackId }
+              isFavorite={
+                favoriteSongs.some((favSong) => favSong.trackId === song.trackId)
+              }
             />
           ))}
         </div>
