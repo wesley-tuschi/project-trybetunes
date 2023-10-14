@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { createUser } from '../services/userAPI';
+import Logo from '../images/trybetunes-logo.png';
+import '../styles/Login.css';
 
 class Login extends Component {
   state = {
@@ -33,27 +36,45 @@ class Login extends Component {
     const loadingMessage = 'Carregando...';
 
     return (
-      <div data-testid="page-login">
-        { isLoading && <div>{ loadingMessage }</div> }
-        { !isLoading && (
-          <form>
-            <label>
-              <input
-                placeholder="Digite o seu Nome"
-                data-testid="login-name-input"
-                type="text"
-                value={ name }
-                onChange={ this.handleInputChange }
+      <div className="login-page vh-100" data-testid="page-login">
+        {isLoading && <div>{loadingMessage}</div>}
+        {!isLoading && (
+          <>
+            <div className="login-logo">
+              <motion.img
+                className="img-fluid"
+                src={ Logo }
+                alt="Logo TrybeTunes"
+                initial={ { rotate: 0 } }
+                animate={ { rotate: 360 } }
+                transition={ {
+                  duration: 1,
+                  loop: Infinity,
+                  ease: 'linear',
+                } }
               />
+            </div>
+            <form className="login-form">
+              <label>
+                <input
+                  placeholder="Digite o seu Nome"
+                  data-testid="login-name-input"
+                  type="text"
+                  value={ name }
+                  onChange={ this.handleInputChange }
+                />
+              </label>
               <button
+                className=" btn-login"
                 data-testid="login-submit-button"
                 disabled={ isButtonDisabled }
                 onClick={ this.handleLoginSubmit }
+                type="submit"
               >
                 Entrar
               </button>
-            </label>
-          </form>
+            </form>
+          </>
         )}
       </div>
     );
