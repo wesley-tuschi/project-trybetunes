@@ -1,0 +1,47 @@
+.results {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+.no-results {
+  color: red;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.all-cards {
+  background-color: #c7f9cc;
+}
+
+.artist-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+}
+
+.artist-card img {
+  max-width: 100px;
+  border-radius: 4px;
+}
+
+.artist-card .album-name {
+  font-size: 1.2em;
+  margin-top: 12px;
+}
+
+.artist-card .artist-name {
+  font-size: 1em;
+  color: #555;
+}

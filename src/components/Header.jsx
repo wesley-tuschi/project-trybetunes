@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
+import '../styles/Header.css';
 
 class Header extends Component {
   state = {
@@ -24,20 +25,20 @@ class Header extends Component {
     const { name, isLoading } = this.state;
     const loadingMessage = 'Carregando...';
     return (
-      <header data-testid="header-component">
-        { isLoading && <div>{ loadingMessage }</div> }
+      <header className="header-component wh-100" data-testid="header-component">
+        { isLoading && <div className="loading-message">{ loadingMessage }</div> }
         { !isLoading && (
           <>
-            <span data-testid="header-user-name">
+            <h1 className="user-name" data-testid="header-user-name">
               {`E ai ${name} !!`}
-            </span>
-            <Link to="/search" data-testid="link-to-search">
+            </h1>
+            <Link to="/search" className="links" data-testid="link-to-search">
               Search
             </Link>
-            <Link to="/favorites" data-testid="link-to-favorites">
+            <Link to="/favorites" className="links" data-testid="link-to-favorites">
               Favorites
             </Link>
-            <Link to="/profile" data-testid="link-to-profile">
+            <Link to="/profile" className="links" data-testid="link-to-profile">
               Profile
             </Link>
 

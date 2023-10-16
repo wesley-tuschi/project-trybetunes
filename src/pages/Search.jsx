@@ -2,6 +2,7 @@ import { Component } from 'react';
 import ArtistSearch from '../components/ArtistSearch';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import '../styles/Search.css';
 
 class Search extends Component {
   state = {
@@ -50,7 +51,7 @@ class Search extends Component {
     const loadingMessage = 'Carregando...';
 
     return (
-      <div data-testid="page-search">
+      <div className="search-page vh-100 wd-100" data-testid="page-search">
         <Header />
         {!isLoading && <div>{ loadingMessage }</div> }
         {isLoading && (

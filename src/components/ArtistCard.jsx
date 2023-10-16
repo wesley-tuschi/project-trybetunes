@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../styles/ArtistCard.css';
 
 class ArtistCard extends Component {
   render() {
     const { artistName, albumName, image, collectionId } = this.props;
     return (
-      <div>
+      <div className="artist-card">
         <img
+          className="img-fluid artist-image"
           src={ image }
           alt={ albumName }
         />
-        <h2>{artistName}</h2>
-        <h3>{albumName}</h3>
+        <h2 className="artist-name">{artistName}</h2>
+        <h3 className="album-name">{albumName}</h3>
         <Link
+          className="link-to-album"
           to={ `album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
         >

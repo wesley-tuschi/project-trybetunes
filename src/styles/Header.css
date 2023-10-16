@@ -1,0 +1,48 @@
+/* Estilo para o cabeçalho geral */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.header-component {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1em;
+  font: 1.2em 'Open Sans', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .header-component {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5em;
+  }
+
+  .user-name {
+    margin: 0.3em;
+  }
+}
+
+.loading-message {
+  font-size: 16px;
+}
+
+.user-name {
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.links {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #38a3a5;
+  margin: 0.3em;
+}
+
+.links:hover {
+  background-color: #22577a;
+}
