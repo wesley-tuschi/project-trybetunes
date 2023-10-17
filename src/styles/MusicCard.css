@@ -1,0 +1,39 @@
+.music-card {
+    background-color: #80ed99;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 8px;
+    padding: 16px;
+    width: 400px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .track-name {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  
+  .track-audio {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+  
+ .favorite-checkbox {
+    margin-right: 10px;
+  }
+  
+  .check-label {
+    font-family: googleapis;
+    font-size: 1em;
+  }
+  
+  /* Estilo para o texto "Carregando..." */
+  .loading {
+    font-size: 0.9em;
+    color: #777;
+  }
+  

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import '../styles/MusicCard.css';
 
 class MusicCard extends Component {
   constructor(props) {
@@ -36,9 +37,16 @@ class MusicCard extends Component {
     const { isLoading, isChecked } = this.state;
 
     return (
-      <div data-testid="music-card">
-        <div data-testid="track-name">{trackName}</div>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+      <div className="music-card" data-testid="music-card">
+        <div className="track-name" data-testid="track-name">
+          {trackName}
+        </div>
+        <audio
+          className="track-audio"
+          data-testid="audio-component"
+          src={ previewUrl }
+          controls
+        >
           <track kind="captions" />
           O seu navegador não suporta o elemento
           {' '}
@@ -47,15 +55,18 @@ class MusicCard extends Component {
         </audio>
         <div>
           <input
+            className="favorite-checkbox"
             type="checkbox"
             id={ `checkbox-music-${trackId}` }
             data-testid={ `checkbox-music-${trackId}` }
             onClick={ this.handleFavorite }
             checked={ isChecked }
           />
-          <label htmlFor={ `checkbox-music-${trackId}` }>Favorita</label>
+          <label className="check-label" htmlFor={ `checkbox-music-${trackId}` }>
+            Favorita
+          </label>
         </div>
-        {isLoading && <div>Carregando...</div>}
+        {isLoading && <div className="loading">Carregando...</div>}
       </div>
     );
   }

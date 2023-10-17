@@ -51,40 +51,41 @@ class Search extends Component {
     const loadingMessage = 'Carregando...';
 
     return (
-      <div className="search-page vh-100 wd-100" data-testid="page-search">
+      <>
         <Header />
-        {!isLoading && <div>{ loadingMessage }</div> }
-        {isLoading && (
-          <form>
-            <label>
-              <input
-                data-testid="search-artist-input"
-                name="bandSearch"
-                type="text"
-                value={ artistName }
-                placeholder="Pesquise o nome da banda"
-                onChange={ this.handleInputChange }
+        <div className="search-page vh-100 wd-100" data-testid="page-search">
+          {!isLoading && <div>{loadingMessage}</div>}
+          {isLoading && (
+            <form>
+              <label>
+                <input
+                  data-testid="search-artist-input"
+                  name="bandSearch"
+                  type="text"
+                  value={ artistName }
+                  placeholder="Pesquise o nome da banda"
+                  onChange={ this.handleInputChange }
+                />
+                <button
+                  data-testid="search-artist-button"
+                  disabled={ isButtonDisabled }
+                  onClick={ this.searchMusic }
+                >
+                  Pesquisar
+                </button>
+              </label>
+            </form>
+          )}
+          {albumLoading && (
+            <div>
+              <ArtistSearch
+                artistMusic={ artistMusic }
+                artistAlbum={ artistAlbum }
               />
-              <button
-                data-testid="search-artist-button"
-                disabled={ isButtonDisabled }
-                onClick={ this.searchMusic }
-              >
-                Pesquisar
-
-              </button>
-            </label>
-          </form>
-        )}
-        {albumLoading && (
-          <div>
-            <ArtistSearch
-              artistMusic={ artistMusic }
-              artistAlbum={ artistAlbum }
-            />
-          </div>
-        )}
-      </div>
+            </div>
+          )}
+        </div>
+      </>
     );
   }
 }

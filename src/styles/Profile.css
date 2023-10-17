@@ -1,0 +1,73 @@
+.page-profile {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c7f9cc;
+  }
+  
+  .profile-info,
+  .profile-actions {
+    width: 80%;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .h1, h2 {
+    color: #333;
+  }
+  
+  .info-item,
+  .profile-button {
+    margin-top: 0.5rem;
+  }
+  
+  .info-label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .info-value {
+    margin-left: 0.5rem;
+    color: #333;
+  }
+  
+  .profile-button {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-button:hover {
+    background-color: #0056b3;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  form label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  form input[type="email"] {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

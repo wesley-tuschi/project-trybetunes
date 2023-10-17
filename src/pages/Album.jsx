@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../styles/Album.css';
 
 class Album extends Component {
   state = {
@@ -38,24 +39,32 @@ class Album extends Component {
     }
 
     return (
-      <div data-testid="page-album">
+      <>
         <Header />
-        <div data-testid="artist-name">{artistName}</div>
-        <div data-testid="album-name">{albumName}</div>
-        <div data-testid="song-list">
-          {songs.map((song) => (
-            <MusicCard
-              key={ song.trackId }
-              trackName={ song.trackName }
-              previewUrl={ song.previewUrl }
-              trackId={ song.trackId }
-              isFavorite={
-                favoriteSongs.some((favSong) => favSong.trackId === song.trackId)
-              }
-            />
-          ))}
+        <div className="page-album" data-testid="page-album">
+          <div className="artist-name" data-testid="artist-name">
+            {artistName}
+          </div>
+          <div className="album-name" data-testid="album-name">
+            {albumName}
+          </div>
+          <div className="cards-album">
+            <div className="song-name" data-testid="song-list">
+              {songs.map((song) => (
+                <MusicCard
+                  key={ song.trackId }
+                  trackName={ song.trackName }
+                  previewUrl={ song.previewUrl }
+                  trackId={ song.trackId }
+                  isFavorite={ favoriteSongs.some(
+                    (favSong) => favSong.trackId === song.trackId,
+                  ) }
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

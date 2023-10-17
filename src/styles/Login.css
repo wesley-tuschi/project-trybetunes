@@ -32,3 +32,10 @@
 width: 50%;
 margin-top: -10rem;
 }
+
+@media (min-width: 768px) {
+  .login-logo {
+    width: 200px;
+    margin-top: -10rem;
+  }
+}
